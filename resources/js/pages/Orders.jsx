@@ -40,7 +40,7 @@ export default function OrderForm() {
         </div>
 
         <div className="mb-3">
-          <label className='text-white'>customer name :</label>
+          <label className='text-white'>Customer name :</label>
           <input
             type="text"
             className="form-control"
@@ -51,31 +51,31 @@ export default function OrderForm() {
         </div>
 
         <div className="mb-3">
-          <label htmlFor="selectType" class="form-label text-white">type</label>
+          <label htmlFor="selectType" class="form-label text-white">Type :</label>
     <select class="form-select" id="selectType" name="type" onChange={(e) => setType(e.target.value)}
             required aria-label="Default select example">
   <option  value="">Open this select menu</option>
-  <option value="dine-in">dine-in</option>
-  <option value="take away">take away</option>
-  <option value="delivery">delivery</option>
+  <option value="dine-in">Dine-in</option>
+  <option value="take away">Take away</option>
+  <option value="delivery">Delivery</option>
 </select>
         </div>
 
          <div className="mb-3">
-          <label htmlFor="selectType" class="form-label text-white">status</label>
+          <label htmlFor="selectType" class="form-label text-white">Status :</label>
     <select class="form-select" id="selectType" name="status" onChange={(e) => setstatus(e.target.value)}
             required aria-label="Default select example">
   <option  value="">Open this select menu</option>
-  <option value="preparing">preparing</option>
-  <option value="ready">ready</option>
-  <option value="served">served</option>
+  <option value="preparing">Preparing</option>
+  <option value="ready">Ready</option>
+  <option value="served">Served</option>
 </select>
         </div>
 
 
         
 
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-warning">
           Save
         </button>
       </form>

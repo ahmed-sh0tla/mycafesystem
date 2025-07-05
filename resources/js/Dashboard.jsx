@@ -10,11 +10,29 @@ function DashboardLayout() {
         <p className="fs-4">DashBoard</p>
         <ul className="nav flex-column">
           <li className="nav-item">
-            <Link className="nav-link text-warning" to="/">Home</Link>
+            <Link className="nav-link text-warning mt-3" to="/">Home</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link text-warning" to="/Orders">Orders</Link>
+            <Link className="nav-link text-warning mt-3" to="/users">Staff list</Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link text-warning mt-3" to="/reports">Reports </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link text-warning mt-3" to="/Orders">Create an order</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link text-warning mt-3" to="/menu">Menu management</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link text-warning mt-3" to="/tabels">Table management</Link>
+          </li>
+
+          <li className="nav-item">
+            <Link className="nav-link text-warning mt-3" to="/inventory-management">Inventory management</Link>
+          </li>
+
+        
         </ul>
       </div>
       

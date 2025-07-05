@@ -1,6 +1,9 @@
 <?php
 
-use App\Models\Order;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\OrderController;
+use App\Http\Middleware\UserAuth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -9,6 +12,8 @@ Route::get('/{any}', function () {
 })->where('any', '.*');
 
 
-Route::post('/myorders', function() {
-    return response()->json(['message' => 'Test route works']);
-});
+Route::post('/loginn', [AuthController::class, 'login_handel']);
+Route::post('/signupp', [AuthController::class, 'signup_handel']);
+Route::post('/logout', [AuthController::class, 'logout']);
+
+

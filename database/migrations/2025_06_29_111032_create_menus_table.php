@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('menus', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->string('password');
-            $table->datetime('email_verified_at')->nullable();
-            $table->string('remember_token')->nullable();
+            $table->string('price')->nullable();
+            $table->string('components')->nullable();
+            $table->enum('categories', ['drinks', 'food', 'candies']);
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('menus');
     }
 };

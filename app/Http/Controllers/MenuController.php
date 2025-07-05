@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
+use App\Models\Menu;
 use Illuminate\Http\Request;
 
-
-class OrderController extends Controller
+class MenuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class OrderController extends Controller
     public function index()
     {
         //
-        return response()->json(Order::all());
+        return response()->json(Menu::all());
     }
 
     /**
@@ -32,32 +31,29 @@ class OrderController extends Controller
     {
         //
         $validated = $request->validate([
-            'table_number' => 'nullable|string|max:255',
-            'customer_name' => 'nullable|string|max:255',
-            'type' => 'required|string',
-            'status' => 'required|string',
-        ]);
+        'price' => 'nullable|numeric|max:10000',
+        'components' => 'nullable|string|max:500',
+        'categories' => 'required|string',
+    ]);
 
-        $order = Order::create($validated);
+    $menu = Menu::create($validated);
 
-        return response()->json($order, 201);
-
-        
+    return response()->json($menu, 201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Order $order)
+    public function show(menu $menu)
     {
         //
-        return $order;
+        return $menu;
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Order $order)
+    public function edit(menu $menu)
     {
         //
     }
@@ -65,19 +61,19 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, menu $menu)
     {
         //
         $validated = $request->validate([
-            'table_number' => 'nullable|string|max:255',
-            'customer_name' => 'nullable|string|max:255',
-            'type' => 'sometimes|required|string',
-            'status' => 'sometimes|required|string',
-        ]);
+        'price' => 'nullable|numeric|max:10000',
+        'components' => 'nullable|string|max:500',
+        'categories' => 'required|string',
+    ]);
+    
+    
+        $menu->update($validated);
 
-        $order->update($validated);
-
-        return response()->json($order);
+        return response()->json($menu);
     }
 
     /**
@@ -86,8 +82,8 @@ class OrderController extends Controller
     public function destroy($id)
     {
         //
-        $order = Order::findOrFail($id);
-        $order->delete();
+        $menu = Menu::findOrFail($id);
+        $menu->delete();
         return response()->json(['message' => 'Order deleted successfully']);
     }
 }
